@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> SVG line animation </title>
+    <style>
+        body {
+            background-color: #000;
+            margin: 0; padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        svg {overflow: visible;} /* SVG 경계 외부의 내용 보이게 하기*/
+        rect {
+            stroke-dasharray: 700; /* stroke의 대시 배열 : 700(원하는 수치값) */
+            /* SVG타입의 stroke 대시배열을 통해 실선, 공백, 선 등을 번갈아가며 나타낼 수 있다. */
+            stroke-dashoffset: 700;
+            /* stroke가 그려지는 효과의 시작위치 */
+            animation: draw 2s forwards;
+            /* forwards : 애니메이션 완료 후 상태를 유지 */
+        }
+        @keyframes draw {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- viewbox : SVG의 크기와 좌표시스템 정의하는 데 사용되는 구조 -->
+    <!-- viewbox = "min-x좌표, min-y좌표, 가로, 세로사이즈" -->
+    <svg width="280" height="130" viewBox="0 0 280 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="15" y="15" width="250" height="100" rx="50" stroke="#0047FF" stroke-width="30" />
+    </svg>
+
+    <svg width="130" height="130" viewBox="0 0 130 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="15" y="15" width="100" height="100" rx="50" stroke="white" stroke-width="30" />
+    </svg>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> SVG dash animation </title>
+    <style>
+        .myPath {
+            fill: none;
+            stroke: #000;
+            stroke-width: 2;
+            stroke-dasharray: 20 5; /* 20px 5gap */
+            stroke-dashoffset: 700; /* 양수:오른쪽, 음수:왼쪽으로 움직임 */
+            animation: drawdash 4s forwards;
+        }
+        @keyframes drawdash {
+            to {stroke-dashoffset: 0;}
+        }
+    </style>
+</head>
+<body>
+    <svg width="300" height="150" xnkbs="http://www.w3.org/2000.svg">
+        <!-- path#myPath -->
+        <!-- d의 M(move to):시작점, Q(quadratic bezier curve):제어점 -->
+        <!-- 시작점 (10,80) > 제어점 (95,10>끝점180,80)으로 이어지는 형태 -->
+        <path class="myPath" d="M10 80 Q95 10 180 80"></path>
+    </svg>
+</body>
+</html>
